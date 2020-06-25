@@ -71,3 +71,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'rspec-rails'
 gem 'jquery-rails'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
