@@ -19,6 +19,7 @@
       <span class="name">
          <a href="/users/<%= tweet.user.id %>">
           <span>投稿者</span><%= tweet.user.nickname %>
+          <%= render partial: 'likes/like', collection: @tweets %>
         </a>
       </span>
     </div>
