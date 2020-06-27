@@ -1,4 +1,4 @@
-$(function() {
+$(function(){
   function buildHTML(comment){
     var html = `<p>
                   <strong>
@@ -9,10 +9,10 @@ $(function() {
                 </p>`
     return html;
   }
-  $('#new_comment').on('submit', function(e) {
+  $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    var formData =new FormData(this);
-    var url = $(this).attr('action')
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -25,10 +25,10 @@ $(function() {
       var html = buildHTML(data);
       $('.comments').append(html);
       $('.textbox').val('');
-      $('.form__submit').prop('disabled',false);
+      $('.form__submit').prop('disabled', false);
     })
     .fail(function(){
-      alert('Error');
+      alert('error');
     })
-  })
+  });
 });
