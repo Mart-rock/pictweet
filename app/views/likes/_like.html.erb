@@ -1,8 +1,12 @@
-<div class="like_button_on">
-    <%= link_to "いいね済み", like_path(tweet), { method: "delete", remote: true } %>
-    <%= @like_count %>
-</div>
-<div class="like_button">
-    <%= link_to "いいね", likes_path(tweet), { method: "post", remote: true } %>
-    <%= @like_count %>
-</div>
+  <% if user_signed_in? %>
+          <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
+            <%= link_to "/tweets/#{tweet.id}/likes", method: :delete, remote: true do %>
+            <i class="fa fa-heart" style="color: lightpink;"></i>
+            <% end %>
+          <% else %>
+            <%= link_to "/tweets/#{tweet.id}/likes", method: :post, remote: true do %>
+            <i class="fa fa-heart"></i>
+            <% end %>
+          <% end %>
+          <% end %>
+           <%= tweet.likes.length %>
