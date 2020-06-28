@@ -1,12 +1,12 @@
   <% if user_signed_in? %>
-          <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
-            <%= link_to "/tweets/#{tweet.id}/likes", method: :delete, remote: true do %>
-            <i class="fa fa-heart" style="color: lightpink;"></i>
-            <% end %>
-          <% else %>
-            <%= link_to "/tweets/#{tweet.id}/likes", method: :post, remote: true do %>
-            <i class="fa fa-heart"></i>
-            <% end %>
-          <% end %>
-          <% end %>
-           <%= tweet.likes.length %>
+    <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
+      <%= link_to "/tweets/#{tweet.id}/likes", method: :delete, remote: true do %>
+        <i class="fa fa-heart" style="color: lightpink;"></i>
+        <% end %>
+    <% else %>
+      <%= link_to "/tweets/#{tweet.id}/likes", method: :post, remote: true do %>
+        <i class="fa fa-heart"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= tweet.likes.length %>
